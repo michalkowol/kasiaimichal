@@ -1,0 +1,11 @@
+# log
+*.log
+
+# idea
+.idea/
+*.iml
+
+# npm
+/npm-debug.log
+/node_modules/
+/dist/
