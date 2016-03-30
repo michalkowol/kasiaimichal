@@ -110,7 +110,7 @@ const GiftsTable = ({gifts}) => {
       <tr>
         <th>Nazwa</th>
         <th>Przykład</th>
-        <th className="text-center">Rezewacja</th>
+        <th className="text-center reservation-column">Rezewacja</th>
       </tr>
       </thead>
       <tbody>
@@ -129,10 +129,8 @@ const GiftRow = React.createClass({
   btnClicked() {
     const reserved = this.props.gift.reserved;
     const name = this.props.gift.name;
-    const msg = reserved ? `Czy na pewno chcesz usunąć rezerwację dla "${name}"?` : `Czy na pewno chcesz usunąć rezerwację dla "${name}"?`;
-    if (!reserved) {
-      this.toogleAndSave();
-    } else if (confirm('Czy na pewno chcesz usunąć rezerwację dla "' + this.props.gift.name + '"?')) {
+    const msg = !reserved ? `Czy na pewno chcesz zrobić rezerwację na "${name}"?` : `Czy na pewno chcesz usunąć rezerwację na "${name}"?`;
+    if (confirm(msg)) {
       this.toogleAndSave();
     } else {
       // Do nothing!
@@ -142,11 +140,13 @@ const GiftRow = React.createClass({
     const reserved = this.props.gift.reserved;
     const btnClass = !reserved ? "btn-primary" : "btn-default";
     const btnText = !reserved ? "Zarezerwuj" : "Usuń rezerwację";
+    const name = !reserved ? this.props.gift.name : <s>{this.props.gift.name}</s>;
+    const example = !reserved ? this.props.gift.example : <s>{this.props.gift.example}</s>;
     return (
       <tr>
-        <td>{this.props.gift.name}</td>
-        <td>{this.props.gift.example}</td>
-        <td className="text-center"><button type="button" className={"btn btn-sm " + btnClass} onClick={this.btnClicked}>{btnText}</button></td>
+        <td>{name}</td>
+        <td>{example}</td>
+        <td className="text-center reservation-column"><button type="button" className={"btn btn-sm " + btnClass} onClick={this.btnClicked}>{btnText}</button></td>
       </tr>
     );
   }
