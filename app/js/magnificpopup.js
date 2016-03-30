@@ -4,35 +4,22 @@ import 'magnific-popup';
 const MagnificPopup = (function () {
   const self = {};
 
-  const magnificPopupCommons = {
-    closeBtnInside: false,
-    fixedContentPos: 'auto',
-    fixedBgPos: true
-  };
-
-  function initFullPriceList() {
-    const magnificPopupGallery = {
-      type: 'inline',
-      overflowY: 'auto',
-      closeBtnInside: true
-    };
-    $('.btn-full-price').magnificPopup($.extend({}, magnificPopupCommons, magnificPopupGallery));
-  }
-
   function initGallery() {
     const magnificPopupGallery = {
       type: 'image',
+      closeBtnInside: false,
+      fixedContentPos: 'auto',
+      fixedBgPos: true,
       navigateByImgClick: true,
       gallery: {
         enabled: true
       }
     };
-    $('.gallery-item').magnificPopup($.extend({}, magnificPopupCommons, magnificPopupGallery));
+    $('.gallery-item').magnificPopup(magnificPopupGallery);
   }
 
   self.init = function () {
-    //initGallery();
-    //initFullPriceList();
+    initGallery();
   };
 
   return self;

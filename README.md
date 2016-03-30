@@ -20,4 +20,7 @@ What: Wedding
 
 * [director](https://github.com/flatiron/director)
 * [jQuery](https://jquery.com/)
+* [lodash](https://lodash.com/)
+* [React](https://facebook.github.io/react/)
 * [Magnific Popup](http://dimsemenov.com/plugins/magnific-popup/)
+* [js-signals](http://millermedeiros.github.io/js-signals/)
