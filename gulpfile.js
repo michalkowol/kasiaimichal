@@ -115,7 +115,6 @@ gulp.task('connect', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(paths.html, ['html']);
   gulp.watch(paths.css, ['css']);
   gulp.watch(paths.stylus, ['stylus']);
   gulp.watch(paths.assets, ['assets']);
