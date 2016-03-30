@@ -1,3 +1,6 @@
+xs-max-width = 767px
+xs-min-width = xs-max-width + 1
+
 html,
 body {
   width: 100%
@@ -32,17 +35,61 @@ body {
   height: 100%
 }
 
-.love {
-  background: url(/img/love.jpg) no-repeat center center scroll
+.section {
+  padding: 50px 0
+}
+
+.main-header {
+  background: url(/img/header.jpg) no-repeat center center scroll
   background-size: cover
   -webkit-background-size: cover
   -moz-background-size: cover
   -o-background-size: cover
 }
 
-.shadow {
+.church-map {
+  background: url(/img/church-map.png) no-repeat center center scroll
+  background-size: contain
+  -webkit-background-size: contain
+  -moz-background-size: contain
+  -o-background-size: contain
+}
+
+@media (max-width: xs-max-width) {
+  .church-map {
+    background: url(/img/church-map.png) no-repeat center center scroll
+    background-size: cover
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+  }
+}
+
+.party-map {
+  background: url(/img/etiuda-map-route.png) no-repeat center center scroll
+  background-size: contain
+  -webkit-background-size: contain
+  -moz-background-size: contain
+  -o-background-size: contain
+}
+
+@media (max-width: xs-max-width) {
+  .party-map {
+    background: url(/img/etiuda-map.png) no-repeat center center scroll
+    background-size: cover
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+  }
+}
+
+.text-grey {
+  color: #000
+}
+
+.text-shadow {
   color: #fff
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, .9)
+  text-shadow: 2px 1px 3px rgba(0, 0, 0, .9)
   text-rendering: optimizeLegibility
   filter: dropshadow(color = #000, offx = 0, offy = 0)
 }
