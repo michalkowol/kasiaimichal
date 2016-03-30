@@ -12,7 +12,7 @@ var paths = {
   assets: ['app/index.html', 'app/.htaccess', 'app/img/**/*', 'app/api/**/*']
 };
 
-gulp.task('clean', function() {
+gulp.task('clean', function () {
   return del(['dist']);
 });
 
@@ -81,7 +81,7 @@ gulp.task('stylus', function () {
     .pipe(connect.reload());
 });
 
-gulp.task('usemin', function() {
+gulp.task('usemin', function () {
   var uglify = require('gulp-uglify');
   var cssnano = require('gulp-cssnano');
   var usemin = require('gulp-usemin');
