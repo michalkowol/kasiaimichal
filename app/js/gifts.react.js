@@ -110,7 +110,7 @@ const GiftsTable = ({gifts}) => {
       <tr>
         <th>Nazwa</th>
         <th>Przykład</th>
-        <th>Zarezerwowany</th>
+        <th className="text-center">Rezewacja</th>
       </tr>
       </thead>
       <tbody>
@@ -121,18 +121,32 @@ const GiftsTable = ({gifts}) => {
 };
 
 const GiftRow = React.createClass({
-  checkboxChanged() {
-    const reserved = ReactDOM.findDOMNode(this.refs.GiftCheckbox).checked;
+  toogleAndSave() {
     const newGift = _.assign({}, this.props.gift);
-    newGift.reserved = reserved;
+    newGift.reserved = !this.props.gift.reserved;
     GiftsActions.changeGift(newGift);
   },
+  btnClicked() {
+    const reserved = this.props.gift.reserved;
+    const name = this.props.gift.name;
+    const msg = reserved ? `Czy na pewno chcesz usunąć rezerwację dla "${name}"?` : `Czy na pewno chcesz usunąć rezerwację dla "${name}"?`;
+    if (!reserved) {
+      this.toogleAndSave();
+    } else if (confirm('Czy na pewno chcesz usunąć rezerwację dla "' + this.props.gift.name + '"?')) {
+      this.toogleAndSave();
+    } else {
+      // Do nothing!
+    }
+  },
   render() {
+    const reserved = this.props.gift.reserved;
+    const btnClass = !reserved ? "btn-primary" : "btn-default";
+    const btnText = !reserved ? "Zarezerwuj" : "Usuń rezerwację";
     return (
       <tr>
         <td>{this.props.gift.name}</td>
         <td>{this.props.gift.example}</td>
-        <td><div className="checkbox no-margin"><label><input type="checkbox" checked={this.props.gift.reserved} onChange={this.checkboxChanged} ref="GiftCheckbox"/>Rezerwacja</label></div></td>
+        <td className="text-center"><button type="button" className={"btn btn-sm " + btnClass} onClick={this.btnClicked}>{btnText}</button></td>
       </tr>
     );
   }
