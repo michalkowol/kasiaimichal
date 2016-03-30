@@ -19,8 +19,5 @@ What: Wedding
 ## JavaScript Libs
 
 * [director](https://github.com/flatiron/director)
-* [font awesome](https://fortawesome.github.io/Font-Awesome/)
 * [jQuery](https://jquery.com/)
-* [lodash](https://lodash.com/)
 * [Magnific Popup](http://dimsemenov.com/plugins/magnific-popup/)
-* [js-signals](http://millermedeiros.github.io/js-signals/)

@@ -9,7 +9,7 @@ var proxy = require('proxy-middleware');
 var paths = {
   scripts: 'app/js/**/*.js',
   htmls: ['app/index.html'],
-  css: ['app/css/**/*.css', 'node_modules/bootstrap/dist/css/**/*.css'],
+  css: ['app/css/**/*.css', 'node_modules/magnific-popup/dist/**/*.css'],
   stylus: 'app/css/**/*.styl',
   img: "app/img/**/*"
 };

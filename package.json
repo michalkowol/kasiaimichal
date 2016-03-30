@@ -3,12 +3,8 @@
   "version": "1.0.0",
   "dependencies": {
     "bootstrap": "3.3.x",
-    "director": "1.2.x",
-    "font-awesome": "4.5.x",
     "jquery": "2.2.x",
-    "lodash": "4.6.x",
-    "magnific-popup": "1.1.x",
-    "signals": "1.0.x"
+    "magnific-popup": "1.1.x"
   },
   "devDependencies": {
     "babel-jest": "9.0.x",

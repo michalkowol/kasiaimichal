@@ -31,8 +31,8 @@ const MagnificPopup = (function () {
   }
 
   self.init = function () {
-    initGallery();
-    initFullPriceList();
+    //initGallery();
+    //initFullPriceList();
   };
 
   return self;
