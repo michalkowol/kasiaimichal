@@ -18,7 +18,6 @@ What: Wedding
 
 ## JavaScript Libs
 
-* [director](https://github.com/flatiron/director)
 * [jQuery](https://jquery.com/)
 * [lodash](https://lodash.com/)
 * [React](https://facebook.github.io/react/)

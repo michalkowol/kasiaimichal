@@ -3,7 +3,6 @@ import React from 'react';
 import _ from 'lodash';
 import ReactDOM from 'react-dom';
 import signals from 'signals';
-import 'bootstrap-notify';
 
 const GiftDispatcher = {
   loadGifts: new signals.Signal(),
@@ -36,7 +35,7 @@ const GiftsStore = (function () {
   });
 
   self.loadGiftsFromServer = function () {
-    $.ajax({
+    return $.ajax({
       url: '/api/get.php',
       dataType: 'json',
       cache: false,
@@ -47,22 +46,13 @@ const GiftsStore = (function () {
   };
 
   function saveGiftOnServer(gift) {
-    $.ajax({
+    return $.ajax({
       type: 'POST',
       url: '/api/reserve.php',
       data: JSON.stringify(gift),
       contentType : 'application/json',
       success: function (gifts) {
         GiftsActions.loadGifts(gifts);
-        $.notify('Zapisano!', {
-          type: 'success',
-          delay: 1000,
-          placement: {from: 'top', align: 'center'},
-          animate: {
-            enter: 'animated fadeInDown',
-            exit: 'animated fadeOutUp'
-          }
-        });
       }
     });
   }
@@ -106,13 +96,6 @@ const GiftsTable = ({gifts}) => {
   });
   return (
     <table className="table table-striped table-bordered table-condensed">
-      <thead>
-      <tr>
-        <th>Nazwa</th>
-        <th>Przykład</th>
-        <th className="text-center">Rezewacja</th>
-      </tr>
-      </thead>
       <tbody>
         {giftRows}
       </tbody>
@@ -141,11 +124,9 @@ const GiftRow = React.createClass({
     const btnClass = !reserved ? "btn-primary" : "btn-default";
     const btnText = !reserved ? "Zarezerwuj" : "Usuń";
     const name = !reserved ? this.props.gift.name : <s>{this.props.gift.name}</s>;
-    const example = !reserved ? this.props.gift.example : <s>{this.props.gift.example}</s>;
     return (
       <tr>
         <td>{name}</td>
-        <td>{example}</td>
         <td className="text-center"><button type="button" className={"btn btn-sm " + btnClass} onClick={this.btnClicked}>{btnText}</button></td>
       </tr>
     );
@@ -153,10 +134,12 @@ const GiftRow = React.createClass({
 });
 
 $(function () {
-  GiftsStore.loadGiftsFromServer();
-  setInterval(function () {
-    GiftsStore.loadGiftsFromServer();
-  }, 2500);
+  function loadGiftsFromServer() {
+    GiftsStore.loadGiftsFromServer().always(function () {
+      setTimeout(loadGiftsFromServer, 3000);
+    });
+  }
+  loadGiftsFromServer();
 });
 
 export default GiftsComponent;

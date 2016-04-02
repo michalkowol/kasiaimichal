@@ -7,7 +7,7 @@ var runSequence = require('run-sequence');
 var proxy = require('proxy-middleware');
 
 var paths = {
-  css: ['app/css/**/*.css', 'node_modules/bootstrap/dist/css/**/*.css', 'node_modules/magnific-popup/dist/**/*.css', 'node_modules/animate.css/animate.min.css'],
+  css: ['app/css/**/*.css', 'node_modules/bootstrap/dist/css/**/*.css', 'node_modules/magnific-popup/dist/**/*.css'],
   stylus: ['app/css/**/*.styl'],
   assets: ['app/index.html', 'app/.htaccess', 'app/img/**/*', 'app/api/**/*']
 };
