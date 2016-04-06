@@ -23,3 +23,7 @@ What: Wedding
 * [React](https://facebook.github.io/react/)
 * [Magnific Popup](http://dimsemenov.com/plugins/magnific-popup/)
 * [js-signals](http://millermedeiros.github.io/js-signals/)
+
+## Preview
+
+![2016-04-06](http://i.imgur.com/Vq13cKf.jpg)
