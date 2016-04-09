@@ -21,12 +21,16 @@ function getJsonFromBody() {
 
 $reservation = getJsonFromBody();
 $gifts = unserialize(file_get_contents('../../db/gifts.data'));
+$timestamp = time();
 $newGifts = array_map(function($gift) {
     global $reservation;
     if ($reservation['name'] == $gift['name']) {
+        global $timestamp;
         $gift['reserved'] = $reservation['reserved'];
+        $gift['modified'] = $timestamp;
     }
     return $gift;
 }, $gifts);
+file_put_contents('../../db/'. $timestamp . '_gifts.json', json_encode($newGifts));
 file_put_contents('../../db/gifts.data', serialize($newGifts));
 echo json_encode($newGifts);
