@@ -4,14 +4,14 @@
   "dependencies": {
     "bootstrap": "3.3.x",
     "jquery": "2.2.x",
-    "lodash": "4.8.x",
+    "lodash": "4.11.x",
     "magnific-popup": "1.1.x",
     "react": "15.0.x",
     "react-dom": "15.0.x",
     "signals": "1.0.x"
   },
   "devDependencies": {
-    "babel-jest": "10.0.x",
+    "babel-jest": "11.0.x",
     "babel-preset-es2015": "6.6.x",
     "babel-preset-react": "6.5.x",
     "babelify": "7.2.x",
@@ -25,7 +25,7 @@
     "gulp-uglify": "1.5.x",
     "gulp-usemin": "0.3.x",
     "gulp-util": "3.0.x",
-    "jest-cli": "0.10.x",
+    "jest-cli": "11.0.x",
     "lodash.assign": "4.0.x",
     "proxy-middleware": "0.15.x",
     "run-sequence": "1.1.x",
